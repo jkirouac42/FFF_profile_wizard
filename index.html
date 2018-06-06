@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <title>Profile Selector</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+  <header>
+    <h2 class="title">Simplify3D profiles for your M3 printer</h2>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <h3>M3SE</h3>
+    </div>
+    <div class="row">
+      <h3>M3ID</h3>
+    </div>
+
+    <div class="row2">
+      <p class="dropdown-category">Filament:</p>
+      <ul>
+        <select id="seFil" name="SE Filament" class="dropdown-content">
+            <option value="type">Type</option>
+            <option value="pla">PLA</option>
+            <option value="abs" >ABS</option>
+            <option value="poly" >Polysupport</option>
+            <option value="bvoh" >BVOH</option>
+          </select>
+      </ul>
+    </div>
+
+
+    <div class="row2">
+      <p class="dropdown-category">Filament:</p>
+      <ul>
+        <select id="idFil" name="ID Filament" class="dropdown-content">
+            <option value="type">Type</option>
+            <option value="pla">PLA</option>
+            <option value="abs" >ABS</option>
+            <option value="poly" >Polysupport</option>
+            <option value="bvoh" >BVOH</option>
+          </select>
+      </ul>
+    </div>
+    <div class="row2">
+      <p class="dropdown-category">Nozzle:</p>
+      <ul>
+        <select id="seNoz" name="SE nozzle"class="dropdown-content">
+            <option value="size">Size</option>          
+            <option value=".25">.25mm</option>
+            <option value=".35">.35mm</option>
+            <option value=".50">.50mm</option>
+            <option value=".75">.75mm</option>
+          </select>
+      </ul>
+    </div>
+
+
+    <div class="row2">
+      <p class="dropdown-category">Nozzle:</p>
+      <ul>
+        <select id="idNoz" name="ID nozzle" class="dropdown-content">
+            <option value="size">Size</option>          
+            <option value=".25">.25mm</option>
+            <option value=".35">.35mm</option>
+            <option value=".50">.50mm</option>
+            <option value=".75">.75mm</option>
+          </select>
+      </ul>
+            <p class="dropdown-category">Tool:</p>
+      <ul>
+        <select class="dropdown-content">
+            <option value="tool">Tool</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
+      </ul>
+    </div>
+  </div>
+  
+
+
+</body>
+<script type="application/javascript" src="profiles.js"></script>
+</html>

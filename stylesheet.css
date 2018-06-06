@@ -1,0 +1,50 @@
+/*css for S3D profiles*/
+h3{
+    font-weight: 400;
+}
+
+select, options{
+    font-family: 'Oswald', sans-serif;
+}
+
+ul{
+    padding-left: 0px;
+}
+
+
+
+.title{
+
+    text-align: center;
+    padding-bottom: 75px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+
+.container{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-family: 'Oswald', sans-serif;
+
+}
+
+.row{
+    text-align:center;
+    padding-bottom: 50px;
+}
+.row2{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-family: 'Oswald', sans-serif;    
+}
+
+.dropdown-category{
+    text-align: right;
+    padding-right: 5px;
+}
+
+dropdown-content{
+    float: left;
+}
+
