@@ -12,32 +12,26 @@ ul{
 }
 
 
-
 .title{
 
     text-align: center;
-    padding-bottom: 75px;
+    padding-bottom: 50px;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
 }
 
 .container{
     width: 90%;
-    display: grid;
-    grid-template-columns: 50% 50%;
     font-family: 'Oswald', sans-serif;
-
+    align-content: center;
 }
 
 .row{
-    text-align:center;
-    padding-bottom: 50px;
-}
-.row2{
     display: grid;
     grid-template-columns: 50% 50%;
-    font-family: 'Oswald', sans-serif;    
+    font-family: 'Oswald', sans-serif; 
 }
+
 
 .dropdown-category{
     text-align: right;
