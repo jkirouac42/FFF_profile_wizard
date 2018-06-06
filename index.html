@@ -13,11 +13,11 @@
     <h2 class="title">Simplify3D profiles for your M3 printer</h2>
   </header>
 
-  <div class="container">
+  <div>
     <div class="row">
       <p class="dropdown-category">Printer:</p>
       <ul>
-        <select id="series" name="printer series" class="dropdown-content">
+        <select id="series" name="Printer" class="dropdown-content">
             <option value="series">Series</option>
             <option value="m3se">M3SE</option>
             <option value="m3-id">M3-ID</option>
@@ -25,7 +25,7 @@
       </ul>
       <p class="dropdown-category">Filament:</p>
       <ul>
-        <select id="seFil" name="SE Filament" class="dropdown-content">
+        <select id="filament" name="Filament" class="dropdown-content">
             <option value="type">Type</option>
             <option value="pla">PLA</option>
             <option value="abs" >ABS</option>
@@ -35,7 +35,7 @@
       </ul>
       <p class="dropdown-category">Nozzle:</p>
       <ul>
-        <select id="idNoz" name="ID nozzle" class="dropdown-content">
+        <select id="nozzle" name="Nozzle" class="dropdown-content">
             <option value="size">Size</option>          
             <option value=".25">.25mm</option>
             <option value=".35">.35mm</option>
@@ -45,14 +45,18 @@
       </ul>
       <p class="dropdown-category">Tool:</p>
       <ul>
-        <select class="dropdown-content">
-            <option value="tool">Tool</option>
+        <select id="tool" name="Tool" class="dropdown-content">
+            <!--<option value="tool">Tool</option>-->
             <option value="left">Left</option>
-            <option value="right">Right</option>
+            <!--<option value="right">Right</option>-->
           </select>
       </ul>
     </div>
+    <div id="match" class="title">
+      <h3 >Download Profile</h3>
+    </div>
   </div>
+  <script type="application/javascript" src="profiles.js"></script>
 </body>
-<script type="application/javascript" src="profiles.js"></script>
+
 </html>
