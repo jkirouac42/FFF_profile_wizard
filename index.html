@@ -48,10 +48,10 @@
       <ul>
         <select id="nozzle" name="Nozzle" class="dropdown-content">
             <option value="size">Size</option>          
-            <option value=".25">.25mm</option>
-            <option value=".35">.35mm</option>
-            <option value=".50">.50mm</option>
-            <option value=".75">.75mm</option>
+            <option value="25">.25mm</option>
+            <option value="35">.35mm</option>
+            <option value="50">.50mm</option>
+            <option value="75">.75mm</option>
           </select>
       </ul>
     </div>
@@ -75,22 +75,47 @@
 
 
 <script type="application/javascript">
-  var printer =document.getElementById('series').value;
-
-
   window.onload = addEventListener;
   
+  var printer;
+  var filament;
+  var nozzle;
+  var uConfig;
   function addEventListener(){
-    if(document.getElementById('series').addEventListener("change", show1, false));
+    document.getElementById('series').addEventListener("change", show1, false);
+    document.getElementById('filament').addEventListener("change", show2, false);
+    document.getElementById('nozzle').addEventListener("change", show3, false);
   }
   
 function show1() {
-    var printer = document.getElementById('series').selectedIndex;
+     printer = document.getElementById('series').value;
     document.getElementById('showFil').style.display = "block";      
-    if(printer == 1 || printer == 2){ 
+    if(printer != "series"){ 
       console.log(printer);
     }
 }
+  
+ function show2() {
+    filament = document.getElementById('filament').value;
+    document.getElementById('showNoz').style.display = "block";
+    if(filament != "filament"){      
+      console.log(filament);
+    } 
+} 
+  
+  function show3(){
+    nozzle = document.getElementById('nozzle').value;
+    if(nozzle != "nozzle"){
+      console.log(nozzle);
+    
+    }
+       uConfig = (printer +filament +nozzle)
+  
+      console.log(uConfig)
+  }
+  
+
+  
   
   </script>
   
