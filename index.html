@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
+<head>
   <meta charset="UTF-8">
   <title>Profile Selector</title>
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
-<body >
+<body>
   <header>
     <h2 class="title">Simplify3D profiles for your M3 printer</h2>
   </header>
@@ -23,14 +23,14 @@
             <option value="M3ID">M3-ID</option>
           </select>
     </ul>
-</div>
+  </div>
 
-    <!--1-->
+  <!--1-->
   <div id="showFil" style="display: none">
-    <div class="row" >
+    <div class="row">
       <p class="dropdown-category">Filament:</p>
       <ul>
-        <select class="dropdown-content" id="filament" name="Filament"  >
+        <select class="dropdown-content" id="filament" name="Filament">
             <option value="type">Type</option>
             <option value="Pla">PLA</option>
             <option value="Abs" >ABS</option>
@@ -40,10 +40,10 @@
       </ul>
     </div>
   </div>
-    
-    <!--2-->
-    <div id="showNoz" style="display: none;">
-      <div class="row">
+
+  <!--2-->
+  <div id="showNoz" style="display: none;">
+    <div class="row">
       <p class="dropdown-category">Nozzle:</p>
       <ul>
         <select id="nozzle" name="Nozzle" class="dropdown-content">
@@ -55,10 +55,10 @@
           </select>
       </ul>
     </div>
-    </div>
-    <!--3-->
-    <div id="showTool" style="display: none;">
-      <div class="row">
+  </div>
+  <!--3-->
+  <div id="showTool" style="display: none;">
+    <div class="row">
       <p class="dropdown-category">Tool:</p>
       <ul>
         <select id="tool" name="Tool" class="dropdown-content">
@@ -68,57 +68,55 @@
           </select>
       </ul>
     </div>
-    </div>
-    <div id="match" class="title" style="display: none">
-      <h3>Download Profile</h3>
-    </div>
+  </div>
+  <div id="match" class="title" style="display: none">
+    <h3>Download Profile</h3>
+  </div>
 
 
-<script type="application/javascript">
-  window.onload = addEventListener;
-  
-  var printer;
-  var filament;
-  var nozzle;
-  var uConfig;
-  function addEventListener(){
-    document.getElementById('series').addEventListener("change", show1, false);
-    document.getElementById('filament').addEventListener("change", show2, false);
-    document.getElementById('nozzle').addEventListener("change", show3, false);
-  }
-  
-function show1() {
-     printer = document.getElementById('series').value;
-    document.getElementById('showFil').style.display = "block";      
-    if(printer != "series"){ 
-      console.log(printer);
+  <script type="application/javascript">
+    window.onload = addEventListener;
+
+    var printer;
+    var filament;
+    var nozzle;
+    var uConfig;
+
+    function addEventListener() {
+      document.getElementById('series').addEventListener("change", show1, false);
+      document.getElementById('filament').addEventListener("change", show2, false);
+      document.getElementById('nozzle').addEventListener("change", show3, false);
     }
-}
-  
- function show2() {
-    filament = document.getElementById('filament').value;
-    document.getElementById('showNoz').style.display = "block";
-    if(filament != "filament"){      
-      console.log(filament);
-    } 
-} 
-  
-  function show3(){
-    nozzle = document.getElementById('nozzle').value;
-    if(nozzle != "nozzle"){
-      console.log(nozzle);
-    
+
+    function show1() {
+      printer = document.getElementById('series').value;
+      document.getElementById('showFil').style.display = "block";
+      if (printer != "series") {
+        console.log(printer);
+      }
     }
-       uConfig = (printer +filament +nozzle)
-  
+
+    function show2() {
+      filament = document.getElementById('filament').value;
+      document.getElementById('showNoz').style.display = "block";
+      if (filament != "filament") {
+        console.log(filament);
+      }
+    }
+
+    function show3() {
+      nozzle = document.getElementById('nozzle').value;
+      if (nozzle != "nozzle") {
+        console.log(nozzle);
+
+      }
+      uConfig = (printer + filament + nozzle)
+
       console.log(uConfig)
-  }
-  
+    }
 
-  
-  
   </script>
-  
+
 </body>
 
 </html>
