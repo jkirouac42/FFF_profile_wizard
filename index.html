@@ -48,10 +48,10 @@
       <ul>
         <select id="nozzle" name="Nozzle" class="dropdown-content">
             <option value="size">Size</option>          
-            <option value="25">.25mm</option>
-            <option value="35">.35mm</option>
-            <option value="50">.50mm</option>
-            <option value="75">.75mm</option>
+            <option id="no25" value="25">.25mm</option>
+            <option id="no35" value="35">.35mm</option>
+            <option id="no50" value="50">.50mm</option>
+            <option id="no75" value="75">.75mm</option>
           </select>
       </ul>
     </div>
@@ -62,9 +62,9 @@
       <p class="dropdown-category">Tool:</p>
       <ul>
         <select id="tool" name="Tool" class="dropdown-content">
-            <!--<option value="tool">Tool</option>-->
+            <option value="tool">Tool</option>
             <option value="left">Left</option>
-            <!--<option value="right">Right</option>-->
+            <option value="right">Right</option>
           </select>
       </ul>
     </div>
@@ -91,30 +91,36 @@
     function show1() {
       printer = document.getElementById('series').value;
       document.getElementById('showFil').style.display = "block";
-      if (printer != "series") {
-        console.log(printer);
-      }
+
+      console.log(printer);
+
     }
 
     function show2() {
       filament = document.getElementById('filament').value;
       document.getElementById('showNoz').style.display = "block";
-      if (filament != "filament") {
-        console.log(filament);
+
+      console.log(filament);
+
+      if (filament == "Poly") {
+
+        console.log("got it")
+
+        document.getElementById('no25').style.display = "none";
+        document.getElementById('no35').style.display = "none";
+        document.getElementById('no75').style.display = "none";
       }
     }
 
     function show3() {
       nozzle = document.getElementById('nozzle').value;
-      if (nozzle != "nozzle") {
-        console.log(nozzle);
 
-      }
+      console.log(nozzle);
+
       uConfig = (printer + filament + nozzle)
 
       console.log(uConfig)
     }
-
   </script>
 
 </body>
