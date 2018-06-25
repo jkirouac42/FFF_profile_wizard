@@ -1,4 +1,6 @@
 /*css for S3D profiles*/
+
+
 h3{
     font-weight: 400;
 }
@@ -27,9 +29,9 @@ ul{
 }
 
 .row{
-    display: grid;
+    display:grid;
     grid-template-columns: 50% 50%;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', sans-serif; 
 }
 
 
@@ -40,5 +42,12 @@ ul{
 
 dropdown-content{
     float: left;
+}
+
+.center{
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    
 }
 

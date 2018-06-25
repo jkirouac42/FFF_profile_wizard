@@ -69,23 +69,25 @@
       </ul>
     </div>
   </div>
-  <div id="match" class="title" style="display: none">
-    <h3>Download Profile</h3>
+  <div class="center">
+    <button id="fff">Download Profile</button>
   </div>
 
 
   <script type="application/javascript">
     window.onload = addEventListener;
 
-    var printer;
-    var filament;
-    var nozzle;
+    var printer = 0;
+    var filament = 0;
+    var nozzle = 0;
     var uConfig;
+    var check = 0;
 
     function addEventListener() {
       document.getElementById('series').addEventListener("change", show1, false);
       document.getElementById('filament').addEventListener("change", show2, false);
       document.getElementById('nozzle').addEventListener("change", show3, false);
+      document.getElementById('fff').addEventListener("click", getfff, false);
     }
 
     function show1() {
@@ -97,29 +99,45 @@
     }
 
     function show2() {
+    
+      if(check == 0){
       filament = document.getElementById('filament').value;
       document.getElementById('showNoz').style.display = "block";
 
       console.log(filament);
 
       if (filament == "Poly") {
-
-        console.log("got it")
-
         document.getElementById('no25').style.display = "none";
         document.getElementById('no35').style.display = "none";
         document.getElementById('no75').style.display = "none";
+        check = 1;
       }
     }
+    else if(check == 1){
+      
+      nozzle = 0;
+      //document.getElementById('showNoz').style.display = "none";
+      document.getElementById('no25').style.display = "block";
+      document.getElementById('no35').style.display = "block";
+      document.getElementById('no75').style.display = "block";
+      
+    }
+      
+  }
 
     function show3() {
       nozzle = document.getElementById('nozzle').value;
 
       console.log(nozzle);
 
-      uConfig = (printer + filament + nozzle)
+      uConfig = (printer+"-" + filament+"-" + nozzle)
 
       console.log(uConfig)
+    }
+    
+    function getfff(){
+        
+    
     }
   </script>
 
