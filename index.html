@@ -13,7 +13,7 @@
     <h2 class="title">Simplify3D profiles for your M3 printer</h2>
   </header>
 
-
+<div class="contianer">
   <div class="row">
     <p class="dropdown-category">Printer:</p>
     <ul>
@@ -24,7 +24,8 @@
           </select>
     </ul>
   </div>
-
+      <p id="printerSelect" class="selection"></p>
+  
   <!--1-->
   <div id="showFil" style="display: none">
     <div class="row">
@@ -32,22 +33,22 @@
       <ul>
         <select class="dropdown-content" id="filament" name="Filament">
             <option value="type">Type</option>
-            <option value="Pla">PLA</option>
-            <option value="Abs" >ABS</option>
-            <option value="Poly" >Polysupport</option>
-            <option value="Bvoh" >BVOH</option>
+            <option value="PLA">PLA</option>
+            <option value="ABS" >ABS</option>
+            <option value="POLY" >Polysupport</option>
+            <option value="BVOH" >BVOH</option>
           </select>
       </ul>
     </div>
   </div>
-
+       <p id="filSelect" class="selection"></p>
   <!--2-->
   <div id="showNoz" style="display: none;">
     <div class="row">
       <p class="dropdown-category">Nozzle:</p>
       <ul>
         <select id="nozzle" name="Nozzle" class="dropdown-content">
-            <option value="size">Size</option>          
+            <option id="noSize" value="size">Size</option>          
             <option id="no25" value="25">.25mm</option>
             <option id="no35" value="35">.35mm</option>
             <option id="no50" value="50">.50mm</option>
@@ -56,6 +57,7 @@
       </ul>
     </div>
   </div>
+         <p id="nozSelect" class="selection"></p>
   <!--3-->
   <div id="showTool" style="display: none;">
     <div class="row">
@@ -69,17 +71,21 @@
       </ul>
     </div>
   </div>
-  <div class="center">
-    <button id="fff">Download Profile</button>
+
+  
+  <div id="button" class="center" style="display: none;">
+        <button id="fff" >Download Profile</button>
   </div>
+  </div>
+           <p id="proSelect" class="selection"></p>
 
 
   <script type="application/javascript">
     window.onload = addEventListener;
 
-    var printer = 0;
-    var filament = 0;
-    var nozzle = 0;
+    var printer;
+    var filament;
+    var nozzle;
     var uConfig;
     var check = 0;
 
@@ -93,35 +99,65 @@
     function show1() {
       printer = document.getElementById('series').value;
       document.getElementById('showFil').style.display = "block";
-
       console.log(printer);
+      //document.getElementById('printerSelect').innerHTML = "You chose " + printer;
 
     }
 
     function show2() {
-    
-      if(check == 0){
-      filament = document.getElementById('filament').value;
-      document.getElementById('showNoz').style.display = "block";
+        filament = document.getElementById('filament').value;
+        
 
-      console.log(filament);
+    if(check == 0 && filament == "POLY"){
 
-      if (filament == "Poly") {
+        document.getElementById('showNoz').style.display = "block";
+        check = 1;
         document.getElementById('no25').style.display = "none";
         document.getElementById('no35').style.display = "none";
-        document.getElementById('no75').style.display = "none";
-        check = 1;
+        document.getElementById('no75').style.display = "none";  
+        console.log("check is set to " + check + ", filament is " + filament);
+    }
+    
+    else if(check == 0 && filament != "POLY"){
+        filament = document.getElementById('filament').value;
+        document.getElementById('showNoz').style.display = "block";
+        document.getElementById('no25').style.display = "block";
+        document.getElementById('no35').style.display = "block";
+        document.getElementById('no75').style.display = "block";
+        document.getElementById('nozzle').S
+        check = 1;        
+        console.log("check is set to " + check + ", filament is " + filament);
+        Reset();
+    }   
+      
+        
+    else if (check == 1 && filament == "POLY") {
+        
+        //filament = document.getElementById('filament').value;
+        document.getElementById('showNoz').style.display = "none";
+        check = 0;
+        document.getElementById('no25').style.display = "none";
+        document.getElementById('no35').style.display = "none";
+        document.getElementById('no75').style.display = "none";  
+        console.log("check is set to " + check + ", filament is " + filament);
+        document.getElementById('showNoz').style.display = "block";
+        Reset();
+        //document.getElementById('printerSelect').innerHTML = "You chose " + printer;
+        
       }
+        
+    else if(check == 1 && filament != "POLY"){
+        document.getElementById('showNoz').style.display = "none";
+       // document.getElementById("nozzle").SelectedIndex = 0;
+        check = 0;
+        document.getElementById('no25').style.display = "block";
+        document.getElementById('no35').style.display = "block";
+        document.getElementById('no75').style.display = "block";  
+        console.log("check is set to " + check + ", filament is " + filament);
+        document.getElementById('showNoz').style.display = "block";
+        Reset();
     }
-    else if(check == 1){
-      
-      nozzle = 0;
-      //document.getElementById('showNoz').style.display = "none";
-      document.getElementById('no25').style.display = "block";
-      document.getElementById('no35').style.display = "block";
-      document.getElementById('no75').style.display = "block";
-      
-    }
+
       
   }
 
@@ -132,13 +168,23 @@
 
       uConfig = (printer+"-" + filament+"-" + nozzle)
 
-      console.log(uConfig)
+      //document.getElementById('nozSelect').innerHTML = "You chose " + nozzle;
+      document.getElementById('button').style.display = "block";
     }
     
     function getfff(){
-      console.log("got you some profile");  
-    
+      document.getElementById('proSelect').innerHTML = "You have chosen the " + uConfig +" FFF profile.";  
+      console.log(uConfig);
     }
+        
+      function Reset() {  
+        var dropDown = document.getElementById("nozzle");  
+        dropDown.selectedIndex = 0;  
+    } 
+      
+      
+      
+      
   </script>
 
 </body>
