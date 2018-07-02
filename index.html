@@ -13,7 +13,7 @@
     <h2 class="title">Simplify3D profiles for your M3 printer</h2>
   </header>
 
-<div class="contianer">
+<div>
   <div class="row">
     <p class="dropdown-category">Printer:</p>
     <ul>
@@ -85,7 +85,7 @@
 
     var printer;
     var filament;
-    var nozzle;
+    var nozzle = 0;
     var uConfig;
     var check = 0;
 
@@ -111,6 +111,7 @@
     if(check == 0 && filament == "POLY"){
 
         document.getElementById('showNoz').style.display = "block";
+        document.getElementById('button').style.display = "none";
         check = 1;
         document.getElementById('no25').style.display = "none";
         document.getElementById('no35').style.display = "none";
@@ -120,6 +121,7 @@
     
     else if(check == 0 && filament != "POLY"){
         filament = document.getElementById('filament').value;
+        document.getElementById('button').style.display = "none";
         document.getElementById('showNoz').style.display = "block";
         document.getElementById('no25').style.display = "block";
         document.getElementById('no35').style.display = "block";
@@ -135,6 +137,7 @@
         
         //filament = document.getElementById('filament').value;
         document.getElementById('showNoz').style.display = "none";
+        document.getElementById('button').style.display = "none";
         check = 0;
         document.getElementById('no25').style.display = "none";
         document.getElementById('no35').style.display = "none";
@@ -148,6 +151,7 @@
         
     else if(check == 1 && filament != "POLY"){
         document.getElementById('showNoz').style.display = "none";
+        document.getElementById('button').style.display = "none";
        // document.getElementById("nozzle").SelectedIndex = 0;
         check = 0;
         document.getElementById('no25').style.display = "block";
@@ -173,8 +177,14 @@
     }
     
     function getfff(){
-      document.getElementById('proSelect').innerHTML = "You have chosen the " + uConfig +" FFF profile.";  
-      console.log(uConfig);
+        if(nozzle == 0){
+            console.log(nozzle);
+        }
+    
+      else{ 
+          document.getElementById('proSelect').innerHTML = "You have chosen the " + uConfig +" FFF profile.";  
+            console.log(uConfig);
+      }
     }
         
       function Reset() {  
